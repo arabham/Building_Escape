@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Do Over Games All Rights Reserved
 
 #include "Building_Escape.h"
 #include "Modules/ModuleManager.h"

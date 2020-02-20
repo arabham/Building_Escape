@@ -1,7 +1,7 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
+// Copyright Do Over Games All Rights Reserved
 #include "WorldPosition.h"
+#include "GameFramework/Actor.h"
+
 
 // Sets default values for this component's properties
 UWorldPosition::UWorldPosition()
@@ -19,8 +19,11 @@ void UWorldPosition::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
+	FString ObjectName = GetOwner()->GetName();
+
+	FString ObjectPosition = GetOwner()->GetActorLocation().ToString();
+
+	UE_LOG(LogTemp, Warning, TEXT("%s position in world is: %s"), *ObjectName, *ObjectPosition);
 }
 
 
