@@ -52,6 +52,8 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	}
 }
 
+
+// Called when ActorThatOpens enters PressurePlate
 void UOpenDoor::OpenDoor(float DeltaTime)
 {
 	CurrentYaw = FMath::FInterpTo(CurrentYaw, OpenAngle, DeltaTime, DoorOpenSpeed);
@@ -60,6 +62,8 @@ void UOpenDoor::OpenDoor(float DeltaTime)
 	GetOwner()->SetActorRotation(DoorRotation);
 }
 
+
+// Called when current time - DoorLastOpened > DoorCloseDelay
 void UOpenDoor::CloseDoor(float DeltaTime)
 {
 	CurrentYaw = FMath::FInterpTo(CurrentYaw, InitialYaw, DeltaTime, DoorCloseSpeed);
@@ -67,3 +71,5 @@ void UOpenDoor::CloseDoor(float DeltaTime)
 	DoorRotation.Yaw = CurrentYaw;
 	GetOwner()->SetActorRotation(DoorRotation);
 }
+
+
