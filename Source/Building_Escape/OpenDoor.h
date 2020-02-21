@@ -1,9 +1,9 @@
 // Copyright Do Over Games All Rights Reserved
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/TriggerVolume.h"
 #include "OpenDoor.generated.h"
 
 
@@ -24,8 +24,30 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	void OpenDoor(float DeltaTime);
+	void CloseDoor(float DeltaTime);
+
 private:
 	float InitialYaw;
 	float CurrentYaw;
-	float TargetYaw;
+
+	UPROPERTY(EditAnywhere)
+	float OpenAngle = 90.f;
+	
+	UPROPERTY(EditAnywhere)
+	float DoorOpenSpeed = 1.f;
+
+	float DoorLastOpened = 0.f;
+
+	UPROPERTY(EditAnywhere)
+	float DoorCloseSpeed = 1.f;
+
+	UPROPERTY(EditAnywhere)
+	float DoorCloseDelay = 2.f;
+
+	UPROPERTY(EditAnywhere)
+	ATriggerVolume* PressurePlate;
+
+	UPROPERTY(EditAnywhere)
+	AActor* ActorThatOpens;
 };
